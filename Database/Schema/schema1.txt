@@ -1,0 +1,29 @@
+ Warden (Warden_ID ,Warden_Name ,Mobile_no ,Email );
+
+ Hostel (Hostel_ID ,Hostel_Name ,Warden_ID);
+
+ Room (Room_ID ,Size_of_room ,Type_of_room,Hostel_ID );
+
+Parents (Parent_ID ,Parent_name ,Parent_address ,Mobile_no ,Email );
+
+ Fee (Receipt_ID,Fee_type ,Fee_paid ,Deposite ,Dues );
+
+ Mess (Mess_ID ,Mess_name ,Mobile_no ,Mess_fee );
+
+Student (Student_ID ,Student_name ,Student_address ,Gender ,Mobile_no ,Email ,Date_of_birth ,Department ,Room_ID ,Fee_receipt_no ,Mess_ID ,Parent_ID );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

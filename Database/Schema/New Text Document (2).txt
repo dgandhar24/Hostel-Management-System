@@ -1,0 +1,163 @@
+1.SQL> SELECT HOSTEL_ID,HOSTEL_NAME FROM HOSTEL
+  2  ;
+
+ HOSTEL_ID HOSTEL_NAME
+------------------ ----------------------------------------
+         	    1 A
+                    2 B
+                    3 C
+---------------------------------------------------------------------------------------------------------
+3.SQL> SELECT ROOM_ID FROM ROOM
+  2  ;
+
+   ROOM_ID
+----------
+         1
+         2
+         3
+         4
+         5
+         6
+
+6 rows selected.
+---------------------------------------------------------------------------------------------------------
+
+3.SQL> SELECT HOSTEL_NAME,NO_OF_STUDENTS FROM HOSTEL
+  2  ;
+
+HOSTEL_NAME                              NO_OF_STUDENTS
+---------------------------------------- --------------
+A                                                   110
+B                                                    98
+C                                                   100
+---------------------------------------------------------------------------------------------------------
+4.SQL> SELECT * FROM HOSTEL,WARDEN WHERE WARDEN.WARDEN_ID = HOSTEL.WARDEN_ID AND W
+ARDEN.WARDEN_NAME = 'Amit Jadhav';
+
+ HOSTEL_ID HOSTEL_NAME                              NO_OF_STUDENTS  WARDEN_ID
+---------- ---------------------------------------- -------------- ----------
+ WARDEN_ID WARDEN_NAME                              MOBILE_NO
+---------- ---------------------------------------- ----------
+EMAIL
+----------------------------------------
+         2 B                                                    98         22
+        22 Amit Jadhav                              9705432200
+amitjadhav@gmail.com
+---------------------------------------------------------------------------------------------------------
+5.SQL> SELECT HOSTEL_ID,COUNT(DISTINCT ROOM_ID) FROM ROOM GROUP BY HOSTEL_ID;
+
+ HOSTEL_ID COUNT(DISTINCTROOM_ID)
+---------- ----------------------
+         1                      2
+         2                      2
+         3                      2
+---------------------------------------------------------------------------------------------------------6.SQL> SELECT WARDEN_NAME FROM HOSTEL,WARDEN WHERE HOSTEL.WARDEN_ID = WARDEN.WARDE
+N_ID AND HOSTEL_NAME = 'A';
+
+WARDEN_NAME
+----------------------------------------
+Satish Patil
+---------------------------------------------------------------------------------------------------------
+7.SQL>SELECT HOSTEL.HOSTEL_ID,HOSTEL_NAME,NO_OF_STUDENTS,HOSTEL.WARDEN_ID FROM HO
+STEL,STUDENT,ROOM WHERE ROOM.ROOM_ID = STUDENT.ROOM_ID AND ROOM.HOSTEL_ID = HOST
+EL.HOSTEL_ID AND STUDENT_NAME = 'Hitesh Gaonkar';
+
+ HOSTEL_ID HOSTEL_NAME                              NO_OF_STUDENTS  WARDEN_ID
+---------- ---------------------------------------- -------------- ----------
+         2 B                                                    98         22
+
+---------------------------------------------------------------------------------------------------------
+8.SQL> SELECT * FROM STUDENT WHERE DEPARTMENT = 'CSE';
+
+  STUDT_ID STUDENT_NAME
+---------- ----------------------------------------
+STUDENT_ADDRESS                          MOBILE_NO
+---------------------------------------- ----------
+EMAIL                                    DATE_OF_B DEPAR    ROOM_ID
+---------------------------------------- --------- ----- ----------
+FEE_RECIPT_NO    MESS_ID  PARENT_ID
+------------- ---------- ----------
+         1 Suresh Gaonkar
+Karad                                    7098465734
+Suresh@gmail.com                         24-JAN-99 CSE            1
+            2          1          1
+
+
+  STUDT_ID STUDENT_NAME
+---------- ----------------------------------------
+STUDENT_ADDRESS                          MOBILE_NO
+---------------------------------------- ----------
+EMAIL                                    DATE_OF_B DEPAR    ROOM_ID
+---------------------------------------- --------- ----- ----------
+FEE_RECIPT_NO    MESS_ID  PARENT_ID
+------------- ---------- ----------
+         3 Hitesh Gaonkar
+Karad                                    7698465734
+Hitesh@gmail.com                         14-FEB-97 CSE            3
+            6          3          1
+
+
+  STUDT_ID STUDENT_NAME
+---------- ----------------------------------------
+STUDENT_ADDRESS                          MOBILE_NO
+---------------------------------------- ----------
+EMAIL                                    DATE_OF_B DEPAR    ROOM_ID
+---------------------------------------- --------- ----- ----------
+FEE_RECIPT_NO    MESS_ID  PARENT_ID
+------------- ---------- ----------
+         6 Rajendra Gaitonde
+Gopal Math                               7598665734
+Rajendra@gmail.com                       07-APR-99 CSE            6
+            8          2          4
+
+            8          2          4
+
+
+  STUDT_ID STUDENT_NAME
+---------- ----------------------------------------
+STUDENT_ADDRESS                          MOBILE_NO
+---------------------------------------- ----------
+EMAIL                                    DATE_OF_B DEPAR    ROOM_ID
+---------------------------------------- --------- ----- ----------
+FEE_RECIPT_NO    MESS_ID  PARENT_ID
+------------- ---------- ----------
+         7 Anuraag Gaitonde
+Gopal Math                               9098465734
+Anuraag@gmail.com                        15-JUN-98 CSE            1
+            4          3          4
+
+
+  STUDT_ID STUDENT_NAME
+---------- ----------------------------------------
+STUDENT_ADDRESS                          MOBILE_NO
+---------------------------------------- ----------
+EMAIL                                    DATE_OF_B DEPAR    ROOM_ID
+---------------------------------------- --------- ----- ----------
+FEE_RECIPT_NO    MESS_ID  PARENT_ID
+------------- ---------- ----------
+        10 Arijit Singh
+Panjab                                   8998465734
+Arijit@gmail.com                         18-AUG-99 CSE            4
+            1          2          6
+---------------------------------------------------------------------------------------------------------
+9.SQL> SELECT DEPARTMENT,COUNT(DISTINCT STUDT_ID) FROM STUDENT GROUP BY DEPARTMENT
+;
+
+DEPAR COUNT(DISTINCTSTUDT_ID)
+----- -----------------------
+AUTO		1
+CIVIL 		1
+CSE    		5
+ETC    		2
+MECH 		1
+---------------------------------------------------------------------------------------------------------
+10.
+SQL> SELECT MESS_NAME,COUNT(DISTINCT STUDT_ID) FROM STUDENT,MESS GROUP BY MESS_N
+AME;
+
+MESS_NAME                                COUNT(DISTINCTSTUDT_ID)
+---------------------------------------- -----------------------
+ABC                                                           10
+EFG                                                           10
+PQR                                                           10
+XYZ                                                           10
